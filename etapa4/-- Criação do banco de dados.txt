@@ -1,0 +1,26 @@
+-- Criação do banco de dados
+
+
+-- Tabela de Produtos
+CREATE TABLE IF NOT EXISTS Produto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(255),
+    preco DECIMAL(10,2) NOT NULL
+);
+
+
+
+-- Tabela de Notas Fiscais
+CREATE TABLE IF NOT EXISTS NotaFiscal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero VARCHAR(50) NOT NULL,
+    data DATE NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_produto) REFERENCES Produto(id)
+);
+
+
